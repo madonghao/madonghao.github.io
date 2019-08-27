@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Vue路由的传参方式]]></title>
+    <url>%2F2019%2F08%2F27%2Fvue-router%2F</url>
+    <content type="text"><![CDATA[Vue路由的传参方式路由的定义123456789&#123; path: '/home', component: () =&gt; import('./views/home.vue')&#125;&#123; path: '/category', name: 'category', component: () =&gt; import('./views/category.vue')&#125; params传参方式 关于params 类似post传参方式 只能用name来引入路由 在浏览器地址栏中不显示参数 页面刷新后参数不存在 12345// params如何携带参数?this.$router.push(&#123;name: 'category', params: &#123; id: 10086 &#125;&#125;);// params如何接收参数?this.$route.params.id; query传参方式 关于query 类似get传参方式 用path来引入路由 在浏览器地址栏中显示参数 页面刷新后参数还存在 12345// query如何携带参数?this.$router.push(&#123;path: '/home', query: &#123; id: 10010 &#125;&#125;);// query如何接收参数?this.$route.query.id; route-link传参方式 关于route-link 类似get传参方式 用path来引入路由 在浏览器地址栏中显示参数 页面刷新后参数还存在 12345678910111213// 关于route-link,我们要重新定义一下路由的path路径,用查询字符串的方式来传递和接收参数// 定义如下// /:[参数名] 可以加多个,达到多个参数的传递和接收&#123; path: '/goodsdetail/:id', component: () =&gt; import('./views/goodsdetail.vue')&#125;// route-link如何携带参数?&lt;route-link to="/goodsdetail/10000" /&gt;// route-link如何接收参数?this.$route.params.id;]]></content>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[一个例子让你明白Vue的Key值]]></title>
+    <url>%2F2019%2F08%2F16%2Fvue-key%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;head&gt; &lt;meta charset="UTF-8"&gt; &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt; &lt;script src="https://unpkg.com/vue/dist/vue.min.js"&gt;&lt;/script&gt; &lt;title&gt;Vue&lt;/title&gt;&lt;/head&gt;&lt;body&gt; &lt;div id="app"&gt; &lt;template v-if="type === 'name'"&gt; &lt;label for="user"&gt;用户名：&lt;/label&gt; &lt;input type="text" id="user" placeholder="输入用户名" key="user-input"&gt; &lt;/template&gt; &lt;template v-else&gt; &lt;label for="mail"&gt;邮箱：&lt;/label&gt; &lt;input type="email" id="mail" placeholder="输入邮箱" key="mail-input"&gt; &lt;/template&gt; &lt;button @click="handleToggleClick"&gt;切换输入类型&lt;/button&gt; &lt;/div&gt;&lt;/body&gt;&lt;script&gt; let app = new Vue(&#123; el: '#app', data: &#123; type: 'name', &#125;, methods: &#123; handleToggleClick() &#123; this.type = this.type === 'name' ? 'mail' : 'name'; &#125; &#125; &#125;)&lt;/script&gt;&lt;/html&gt; 如上例子，我们先来做个约定 把id为user的input输入框称为A 把id为user的input输入框称为B 加Key值的情况下如上例子，在加key值的情况下，我们做如下操作 在A输入框输入一段Hello World; 点击button按钮切换输入类型; 不加Key值的情况下如上例子，在不加key值的情况下，我们做如下操作 在A输入框输入一段Hello World; 点击button按钮切换输入类型; 如上我们可以得出结论，Vue刷新DOM结构的时候会复用input组件，而key值就是用来区分用的，每个key值需要是唯一的值，这样Vue在刷新DOM结构的时候就不会复用你的组件了]]></content>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+</search>
